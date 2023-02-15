@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/FunctionApp.HTTP/Properties/ServiceDependencies/FunctionAppHTTP20230215224011 - Zip Deploy
+/FunctionApp.HTTP/Properties/serviceDependencies.FunctionAppHTTP20230215224011 - Zip Deploy.json
+/FunctionApp.HTTP/Properties/serviceDependencies.klassanov-http-function - Zip Deploy.json
