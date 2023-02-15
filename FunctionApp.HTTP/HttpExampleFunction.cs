@@ -25,6 +25,11 @@ namespace FunctionApp.HTTP
             //string name = req.Query["name"];
 
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+
+            if (string.IsNullOrEmpty(requestBody)){
+                return new OkObjectResult("This HTTP triggered function executed successfully, but please pass a json object in the request body");
+            }
+
             var person = JsonConvert.DeserializeObject<Person>(requestBody);
             string responseMessage = string.IsNullOrEmpty(person.Name)
                 ? "This HTTP triggered function executed successfully. Pass a name in the request body for a personalized response."
