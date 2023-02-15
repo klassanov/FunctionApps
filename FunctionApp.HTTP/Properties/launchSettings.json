@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "FunctionApp.HTTP": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7255",
+      "launchBrowser": false
+    }
+  }
+}
