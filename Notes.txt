@@ -1,0 +1,26 @@
+ -Write less code, maintain less infrastructure, and save on costs. Instead of worrying about deploying and maintaining servers, the cloud infrastructure provides all the up-to-date resources needed to keep your applications running
+
+
+
+
+
+- Every function must have exactly one trigger associated with it. If you want to execute a piece of logic that runs under multiple conditions, you need to create multiple functions that share the same core function code
+
+- In-process class library: compiled C# function that runs in the same process as the Functions runtime.
+ Isolated worker process class library: compiled C# function that runs in a worker process that is isolated from the runtime. Isolated worker process is required to support C# functions running on non-LTS versions .NET and the .NET Framework.
+ C# Script (.csx): used primarily when creating C# functions in the Azure portal.
+
+ - Unlike a trigger, a function can have multiple input bindings and output bindings
+
+ - Use free sandboxes for publishing? https://learn.microsoft.com/en-us/training/modules/execute-azure-function-with-triggers/4-create-timer-trigger
+
+ - Timer trigger: If a function app scales out to multiple instances, only a single instance of a timer-triggered function is run across all instances. It will not trigger again if there is an outstanding invocation is still running
+
+ - More general: Manually run a non HTTP-triggered function
+
+	https://learn.microsoft.com/en-us/azure/azure-functions/functions-manually-run-non-http
+	The timer trigger for Azure Functions provides an HTTP webhook that can be invoked to manually trigger the function. This can be extremely useful in the following scenarios.
+	
+	Integration testing
+	Slot swaps as part of a smoke test or warmup activity
+	Initial deployment of a function to immediately populate a cache or lookup table in a database

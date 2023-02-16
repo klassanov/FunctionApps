@@ -26,7 +26,8 @@ namespace FunctionApp.HTTP
 
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
 
-            if (string.IsNullOrEmpty(requestBody)){
+            if (string.IsNullOrEmpty(requestBody))
+            {
                 return new OkObjectResult("This HTTP triggered function executed successfully, but please pass a json object in the request body");
             }
 
@@ -38,6 +39,14 @@ namespace FunctionApp.HTTP
             log.LogInformation($"The request has been processed in {stopwatch.ElapsedMilliseconds} ms");
 
             return new OkObjectResult(responseMessage);
+        }
+
+        [FunctionName("HttpExample2")]
+        public static async Task<IActionResult> RunIt(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
+            ILogger log)
+        {
+            return new OkObjectResult("Ciao");
         }
     }
 
