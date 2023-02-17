@@ -1,18 +1,60 @@
- -Write less code, maintain less infrastructure, and save on costs. Instead of worrying about deploying and maintaining servers, the cloud infrastructure provides all the up-to-date resources needed to keep your applications running
 
 
 
 
 
-- Every function must have exactly one trigger associated with it. If you want to execute a piece of logic that runs under multiple conditions, you need to create multiple functions that share the same core function code
+ - Use free sandboxes for publishing? https://learn.microsoft.com/en-us/training/modules/execute-azure-function-with-triggers/4-create-timer-trigger
+
+
+GENERAL CONCEPTS
+--------------------------------------------
+ - Benefits: Write less code, maintain less infrastructure, and save on costs. Instead of worrying about deploying and maintaining servers, the cloud infrastructure provides all the up-to-date resources needed to keep your applications running
+             Flexible hosting plans, Dynamic scaling, Event based architecture
+			
+
+- What are functions: Azure Functions is a cloud-based compute service. Functions provide event-driven and scalable serverless compute for Azure
+						 Functions are meant to be small and focused and process incoming data and be done or raise a new event in turn.
+
+
+- Function types/Triggers: 
+
+
+
+- Use cases in which Azure Functions are suitable:
+	- Reminders and notifications: Sending emails
+	- Scheduled tasks: Starting backups, Database cleanups
+	- Experimental APIs : if you use the Consumption plan, with Functions, you can make millions of calls and pay very little:
+	- Webhook requests
+	- Process file uploads. Run code when a file is uploaded or changed in a blob storage
+	- Order processing,  messages, and IoT data processing
+	- IoT stream processing. It’s possible to collect and process data from IoT devices
+	- Real-Time data processing: can be combined with SignalR
+	- Serverless workflow implementation:  series of functions can be chained together, you can introduce state (durable functions) and implement a complex workflow
+	- Anytime a piece of code should run for a reason
+
+
+
+
+
+DEVELOPMENT CONCEPTS
+--------------------------------------------
+
+-  Development languages:  C#, Java, JavaScript, PowerShell, or Python, or use a custom handler to use virtually any other language.
+
+-  Bindings are connection code you don’t have to write. An output binding provides a way to write data to the data source,
+	for example, place a message on a queue or a new row in a database. Input bindings can be used to pass data to your function 
+	from a data source different than the one that triggered the function
+
+
 
 - In-process class library: compiled C# function that runs in the same process as the Functions runtime.
  Isolated worker process class library: compiled C# function that runs in a worker process that is isolated from the runtime. Isolated worker process is required to support C# functions running on non-LTS versions .NET and the .NET Framework.
  C# Script (.csx): used primarily when creating C# functions in the Azure portal.
+ Differencies in the development according to the C# mode (hosting model) chosen. Example differencies: nuget packages, way of writing
 
- - Unlike a trigger, a function can have multiple input bindings and output bindings
+- Every function must have exactly one trigger associated with it. If you want to execute a piece of logic that runs under multiple conditions, you need to create multiple functions that share the same core function code
 
- - Use free sandboxes for publishing? https://learn.microsoft.com/en-us/training/modules/execute-azure-function-with-triggers/4-create-timer-trigger
+- Unlike a trigger, a function can have multiple input bindings and output bindings
 
  - Timer trigger: If a function app scales out to multiple instances, only a single instance of a timer-triggered function is run across all instances. It will not trigger again if there is an outstanding invocation is still running
 
@@ -24,3 +66,22 @@
 	Integration testing
 	Slot swaps as part of a smoke test or warmup activity
 	Initial deployment of a function to immediately populate a cache or lookup table in a database
+
+
+
+
+- Azure Function Components Table from https://learn.microsoft.com/en-us/training/modules/intro-azure-functions/3-how-azure-functions-works
+
+- Azure Function Core Tools: During development, you can install the Functions runtime on your local computer and run functions locally by using the Azure Functions Core Tools
+
+
+
+AZURE
+--------------------------------------------
+- Azure-Monitoring Functions offers built-in integration with Azure Application Insights to monitor functions. Application Insights collects log, performance, and error data
+
+- A function app is a unit of deployment, management, and scale for your functions. All function in a function app share the same setting and connections.
+
+- Consumption plans: In the Consumption and Premium plans, Functions scales CPU and memory resources by adding more function app instances. The number of instances is determined based on the number of events that trigger a function. All functions within a function app share resource within an instance and scale at the same time.
+	Consumption plan: you only pay for the time when the code runs
+
