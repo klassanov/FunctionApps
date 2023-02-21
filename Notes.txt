@@ -4,13 +4,25 @@
 
 
  - Use free sandboxes for publishing? https://learn.microsoft.com/en-us/training/modules/execute-azure-function-with-triggers/4-create-timer-trigger
+									  https://learn.microsoft.com/en-us/training/modules/create-serverless-logic-with-azure-functions/3-create-an-azure-functions-app-in-the-azure-portal?pivots=javascript
 
 
 GENERAL CONCEPTS
 --------------------------------------------
  - Benefits: Write less code, maintain less infrastructure, and save on costs. Instead of worrying about deploying and maintaining servers, the cloud infrastructure provides all the up-to-date resources needed to keep your applications running
              Flexible hosting plans, Dynamic scaling, Event based architecture
+			 Get automatic scaling, you have no servers to manage, and you are charged based on what is used—not on reserved time
 			
+- Drawbacks (limitations): 
+    - Execution time: default timeout 5 min, max timeout 10 mins, configurable but <=10s. This timeout is configurable to a maximum of 10 minutes. If your function requires more than 10 minutes to execute, you can host it on a VM.
+					  Additionally, if your service is initiated through an HTTP request and you expect that value as an HTTP response, the timeout is further restricted to 2.5 minutes
+					  Resolution 1 : Durable Functions that lets you orchestrate the executions of multiple functions without any timeout.
+
+	- Execution frequency:  If you expect your function to be executed continuously by multiple clients, it would be prudent to estimate the usage and
+							calculate the cost of using functions accordingly. It might be cheaper to host your service on a VM (use Azure App Service plan).
+
+	- General Resolution to both problems: The Azure App Service plan enables you to avoid timeout periods by having your function run continuously on a VM that you define. Technically this is not a serverless plan. 
+										   It may be a better choice if your functions are used continuously, or if your functions require more processing power or longer execution time than the Consumption plan can provide.
 
 - What are functions: Azure Functions is a cloud-based compute service. Functions provide event-driven and scalable serverless compute for Azure
 						 Functions are meant to be small and focused and process incoming data and be done or raise a new event in turn.
@@ -30,16 +42,21 @@ GENERAL CONCEPTS
 	- IoT stream processing. It’s possible to collect and process data from IoT devices
 	- Real-Time data processing: can be combined with SignalR
 	- Serverless workflow implementation:  series of functions can be chained together, you can introduce state (durable functions) and implement a complex workflow
+	- Stateless functions are great candidates for serverless compute; function instances are created and destroyed on demand. If state is required, it can be stored in an associated storage service.
 	- Anytime a piece of code should run for a reason
 
-
-
+- Key points:
+    - Event Driven
+	- Stateless functions (state can be provided as well)
+	- 
 
 
 DEVELOPMENT CONCEPTS
 --------------------------------------------
 
 -  Development languages:  C#, Java, JavaScript, PowerShell, or Python, or use a custom handler to use virtually any other language.
+
+- Development environments: VS, VS Code, ... more
 
 -  Bindings are connection code you don’t have to write. An output binding provides a way to write data to the data source,
 	for example, place a message on a queue or a new row in a database. Input bindings can be used to pass data to your function 
@@ -74,14 +91,65 @@ DEVELOPMENT CONCEPTS
 
 - Azure Function Core Tools: During development, you can install the Functions runtime on your local computer and run functions locally by using the Azure Functions Core Tools
 
+- You declare where the data comes from (trigger/input binding) and where it goes (output binding). You don't need to write code to watch queues, blobs, hubs, and so on. You can focus purely on the business logic
+
 
 
 AZURE
 --------------------------------------------
 - Azure-Monitoring Functions offers built-in integration with Azure Application Insights to monitor functions. Application Insights collects log, performance, and error data
 
+
 - A function app is a unit of deployment, management, and scale for your functions. All function in a function app share the same setting and connections.
+
 
 - Consumption plans: In the Consumption and Premium plans, Functions scales CPU and memory resources by adding more function app instances. The number of instances is determined based on the number of events that trigger a function. All functions within a function app share resource within an instance and scale at the same time.
 	Consumption plan: you only pay for the time when the code runs
+
+
+- Only one function app instance can be created every 10 seconds, for up to 200 total instances. Each instance can service multiple concurrent executions =>
+  there's no set limit about how much traffic a single instance can handle.
+
+
+- Functions are hosted in an execution context called a function app
+
+
+- Cost estimation (Consumption plan): https://azure.microsoft.com/en-us/pricing/calculator/ 
+	Select Region and Tier
+	Expected Memory used per execution x Expected Execution time [ms] x Expected N. Executions/month = Expected Monthly Cost
+	Example for Consumption Plan, Region: West Europe: 256 MB x 1000 ms x 10 000 calls/month = 100$
+
+	Storage Account Requirement: A function app must be linked to a storage account. You can select an existing account or create a new one.
+	                             The function app uses this storage account for internal operations,
+								 such as logging function executions and managing execution triggers
+	Is the the cost of the storage account included? Maybe yes
+
+
+- Monitoring and Application Insights dashboard
+
+- In one function app instance in Azure, U can host multiple functions. It is a logical group
+
+
+
+LIVE DEMO
+--------------------------------------------
+1.
+2.
+3. Function chaining: unction chaining refers to the pattern of executing a sequence of functions in a particular order. Often the output of one function needs to be applied to the input of another function
+
+
+
+
+
+TODO
+--------------------------------------------
+
+
+- Deploy with AzureDevOps pipeline
+
+- Function keys and authorization (if possible)
+   - When you create a HTTP (for the others?) function, you select the authorization level.
+		- Function (default): requires a function-specific API key -> 	HTTP header named x-functions-key or  query string variable named "code" (not reccomended)
+		- Admin: use a global "master" key
+		- Anonymous: no key is required. 
 
