@@ -147,6 +147,8 @@ TODO
 
 - Deploy with AzureDevOps pipeline
 
+- DI in functions
+
 - Function keys and authorization (if possible)
    - When you create a HTTP (for the others?) function, you select the authorization level.
 		- Function (default): requires a function-specific API key -> 	HTTP header named x-functions-key or  query string variable named "code" (not reccomended)
