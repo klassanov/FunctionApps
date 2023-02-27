@@ -5,13 +5,14 @@
 
  - Use free sandboxes for publishing? https://learn.microsoft.com/en-us/training/modules/execute-azure-function-with-triggers/4-create-timer-trigger
 									  https://learn.microsoft.com/en-us/training/modules/create-serverless-logic-with-azure-functions/3-create-an-azure-functions-app-in-the-azure-portal?pivots=javascript
-
+									  https://learn.microsoft.com/en-us/training/modules/chain-azure-functions-data-using-bindings/3-explore-input-and-output-binding-types-portal-lab?pivots=javascript
 
 GENERAL CONCEPTS
 --------------------------------------------
  - Benefits: Write less code, maintain less infrastructure, and save on costs. Instead of worrying about deploying and maintaining servers, the cloud infrastructure provides all the up-to-date resources needed to keep your applications running
              Flexible hosting plans, Dynamic scaling, Event based architecture
-			 Get automatic scaling, you have no servers to manage, and you are charged based on what is used—not on reserved time
+			 Get automatic scaling, you have no servers to manage, and you are charged based on what is used—not on reserved time.
+			 The power of Azure Functions comes mainly from the integrations that it offers with a range of data sources and services, which are defined with bindings.
 			
 - Drawbacks (limitations): 
     - Execution time: default timeout 5 min, max timeout 10 mins, configurable but <=10s. This timeout is configurable to a maximum of 10 minutes. If your function requires more than 10 minutes to execute, you can host it on a VM.
@@ -60,9 +61,30 @@ DEVELOPMENT CONCEPTS
 
 -  Bindings are connection code you don’t have to write. An output binding provides a way to write data to the data source,
 	for example, place a message on a queue or a new row in a database. Input bindings can be used to pass data to your function 
-	from a data source different than the one that triggered the function
+	from a data source different than the one that triggered the function.
+	With bindings, developers interact with other data sources and services without worrying about how the data flows to and from their function.
+	The power of Azure Functions comes mainly from the integrations that it offers with a range of data sources and services, which are defined with bindings.
+	Very powerful on integrations between different kind of system. Classical example: read data from system A and write data to system B where A and B systems are
+	heterogeneous, for ex A is a message queue, B is a db.
+	You don't need to write code for tasks, such as opening a storage connection.
+	Not all types of bindings support both input and output.
+	
+	There are two kinds of bindings you can use with functions:
+		Input binding - Connects to a data source. Our function can read data from these input sources.
+		Output binding - Connects to a data destination. Our function can write data to these output destinations.
+		Triiggers - special types of input bindings that cause a function to run
 
+	Common binding types include:
 
+		Blob Storage
+		Azure Service Bus Queues
+		Azure Cosmos DB
+		Azure Event Hubs
+		External files
+		External tables
+		HTTP endpoints
+		These types are just a sample. There are more, plus functions have an extensibility model to add more bindings.
+	
 
 - In-process class library: compiled C# function that runs in the same process as the Functions runtime.
  Isolated worker process class library: compiled C# function that runs in a worker process that is isolated from the runtime. Isolated worker process is required to support C# functions running on non-LTS versions .NET and the .NET Framework.
@@ -131,11 +153,13 @@ AZURE
 
 
 
-LIVE DEMO
---------------------------------------------
-1.
-2.
-3. Function chaining: unction chaining refers to the pattern of executing a sequence of functions in a particular order. Often the output of one function needs to be applied to the input of another function
+LIVE DEMO (localhost, Develop in portal) -> review the order
+------------------------------------------------------------------------------
+1. HTTP Trigger (localhost)
+2. Timer (localhost)
+3. Chaining Function chaining (localhost): unction chaining refers to the pattern of executing a sequence of functions in a particular order. Often the output of one function needs to be applied to the input of another function
+4. Deploy HTTP Trigger function on Azure (with pipeline or from visual studio or both)
+5. HTTP Trigger in javascript (Develop in portal)?
 
 
 
