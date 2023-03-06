@@ -52,6 +52,17 @@ GENERAL CONCEPTS
 	- 
 
 
+- Durable functions: Whereas Azure Functions operate in a stateless environment, Durable Functions can retain state between function calls.
+	- 3 durable function types: Client, Orchestrator, and Activity: 1 Client function, 1 Orchestrator function, N Activity functions
+		- Client: function that is the entry point
+		- Orchestrator: function that defines the order of operations and how they are executed
+		- Activity: function that is a basic unit of work
+
+	
+	
+	- Common Application Patterns, take pics from https://learn.microsoft.com/en-us/training/modules/create-long-running-serverless-workflow-with-durable-functions/2-what-is-durable-functions:
+				Function chaining, Fan-out/Fan-in, Async HTTP APIs, Monitor, Human interaction 
+
 DEVELOPMENT CONCEPTS
 --------------------------------------------
 
@@ -115,7 +126,10 @@ DEVELOPMENT CONCEPTS
 
 - You declare where the data comes from (trigger/input binding) and where it goes (output binding). You don't need to write code to watch queues, blobs, hubs, and so on. You can focus purely on the business logic
 
-
+- Development possibilities: 
+	- On Portal (ONLINE)
+	- Visual Studio (LOCAL)
+	- Azure Functions Core Tools (LOCAL): command-line utilities that let you develop and run functions locally, and then publish them to Azure
 
 AZURE
 --------------------------------------------
