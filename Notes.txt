@@ -197,7 +197,9 @@ LIVE DEMO (localhost, Develop in portal) -> review the order
 4. Deploy HTTP Trigger function on Azure (with pipeline or from visual studio or both)
 5. HTTP Trigger in javascript (Develop in portal)?
 6. Show different ways of development: In-portal vs Local (VS or Core Tools, VS code function extension?)
-
+7. Demo with Core Tools locally (https://learn.microsoft.com/en-us/training/modules/develop-test-deploy-azure-functions-with-core-tools/3-exercise-create-function-core-tools)
+   by using one terminal for function creation and one terminal for curl.
+   The same can be achieved with the Core Tools in Azure Cloud Shell -> info in the link
 
 
 
