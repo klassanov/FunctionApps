@@ -141,10 +141,16 @@ DEVELOPMENT CONCEPTS
   The Core Tools are standalone utilities, not an extension of an IDE. You can use the command line, any text editor to write code and modify a configuration.
   You'll also need the Azure CLI or Azure PowerShell to sign in to Azure and carry out other management tasks.
   Functions-related features in Visual Studio and the Azure Functions extension for Visual Studio Code are built on top of Core Tools.
+   - func init/ func new/ func start
+   - build with vs and then run func start from a functions project folder
+   - Sandbox and Browser Cloud Shell https://learn.microsoft.com/en-us/training/modules/develop-test-deploy-azure-functions-with-core-tools/3-exercise-create-function-core-tools
 
 
 
-
+- Every function published to Azure belongs to a function app, which is a collection of one or more functions that Azure publishes together 
+   into the same environment. All of the functions in a function app share a common set of configuration values. 
+   Build them all for the same language runtime. A function app is an Azure resource that can be configured and managed independently.
+   A functions project on your computer is equivalent to a function app in Azure, and can contain multiple functions that use the same language runtime.
 
 
 AZURE
@@ -190,6 +196,7 @@ LIVE DEMO (localhost, Develop in portal) -> review the order
 3. Chaining Function chaining (localhost): unction chaining refers to the pattern of executing a sequence of functions in a particular order. Often the output of one function needs to be applied to the input of another function
 4. Deploy HTTP Trigger function on Azure (with pipeline or from visual studio or both)
 5. HTTP Trigger in javascript (Develop in portal)?
+6. Show different ways of development: In-portal vs Local (VS or Core Tools, VS code function extension?)
 
 
 
