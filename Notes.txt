@@ -126,10 +126,26 @@ DEVELOPMENT CONCEPTS
 
 - You declare where the data comes from (trigger/input binding) and where it goes (output binding). You don't need to write code to watch queues, blobs, hubs, and so on. You can focus purely on the business logic
 
-- Development possibilities: 
+- Development possibilities (show a demo of each of them): 
 	- On Portal (ONLINE)
 	- Visual Studio (LOCAL)
 	- Azure Functions Core Tools (LOCAL): command-line utilities that let you develop and run functions locally, and then publish them to Azure
+
+
+- Local development vs. Azure portal development
+  The Azure portal has a powerful functions editor experience. In most cases, it doesn't support modifying functions that you develop locally.
+  Once you start using a local development workflow based on Core Tools, 
+  you can't use the Azure portal to make changes to your functions.
+
+- The Core Tools are packaged as a single command-line utility named func.
+  The Core Tools are standalone utilities, not an extension of an IDE. You can use the command line, any text editor to write code and modify a configuration.
+  You'll also need the Azure CLI or Azure PowerShell to sign in to Azure and carry out other management tasks.
+  Functions-related features in Visual Studio and the Azure Functions extension for Visual Studio Code are built on top of Core Tools.
+
+
+
+
+
 
 AZURE
 --------------------------------------------
