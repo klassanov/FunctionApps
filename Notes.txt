@@ -151,6 +151,7 @@ DEVELOPMENT CONCEPTS
    into the same environment. All of the functions in a function app share a common set of configuration values. 
    Build them all for the same language runtime. A function app is an Azure resource that can be configured and managed independently.
    A functions project on your computer is equivalent to a function app in Azure, and can contain multiple functions that use the same language runtime.
+   A given function app only supports a single language runtime.
 
 
 AZURE
