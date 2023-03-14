@@ -6,12 +6,13 @@
 trigger:
 - master
 
+
 variables:
   # Azure Resource Manager connection created during pipeline creation
   azureSubscription: '1a0bd19b-87f0-4cba-8536-48cd3acaa1ac'
 
   # Function app name
-  #functionAppName: 'DOTNETFunctionApps'
+  functionAppName: 'DOTNETFunctionApps'
 
   # Agent VM image name
   vmImageName: 'windows-2019'
@@ -67,6 +68,12 @@ stages:
         deploy:
 
           steps:
+          - task: Bash@3
+            displayName: Print variables
+            inputs:
+               targetType: 'inline'
+               script: echo Azure Subscription '$(azureSubscription)'
+
           - task: AzureFunctionApp@1
             displayName: 'Azure functions app deploy'
             inputs:
