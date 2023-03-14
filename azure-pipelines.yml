@@ -11,7 +11,7 @@ variables:
   azureSubscription: '1a0bd19b-87f0-4cba-8536-48cd3acaa1ac'
 
   # Function app name
-  functionAppName: ''
+  functionAppName: 'DOTNETFunctionApps'
 
   # Agent VM image name
   vmImageName: 'windows-2019'
