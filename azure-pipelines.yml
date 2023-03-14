@@ -11,7 +11,7 @@ variables:
   azureSubscription: '1a0bd19b-87f0-4cba-8536-48cd3acaa1ac'
 
   # Function app name
-  functionAppName: 'DOTNETFunctionApps'
+  #functionAppName: 'DOTNETFunctionApps'
 
   # Agent VM image name
   vmImageName: 'windows-2019'
@@ -72,5 +72,5 @@ stages:
             inputs:
               azureSubscription: '$(azureSubscription)'
               appType: functionApp
-              appName: $(functionAppName)
+              appName: 'ExampleFunctionApp'
               package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
