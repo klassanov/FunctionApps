@@ -75,9 +75,9 @@ stages:
             inputs:
                targetType: 'inline'
                script: |
-                       echo Azure Subscription '$(AzurePortalServiceConnectionId)'
-                       echo ResourceGroupId '$(ResourceGroupId)'
-                       echo FunctionAppName '$(functionAppName)'
+                       echo Azure Subscription: '$(AzurePortalServiceConnectionId)'
+                       echo ResourceGroupId: '$(ResourceGroupId)'
+                       echo FunctionAppName: '$(functionAppName)'
 
           - task: AzureFunctionApp@1
             displayName: 'Azure functions app deploy'
