@@ -81,3 +81,4 @@ stages:
               appType: functionApp
               appName: '$(AzureFunctionAppName)'
               package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
+              deploymentMethod: 'auto'
