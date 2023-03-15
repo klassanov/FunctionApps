@@ -10,11 +10,6 @@ trigger:
 variables:
   # Azure Resource Manager connection created during pipeline creation
   # It would be more correct would be to name it service connection id -> see the query string in Service connections
-  # azureSubscription: '1a0bd19b-87f0-4cba-8536-48cd3acaa1ac'
-  
-
-  # Function app name
-  functionAppName: 'DOTNETFunctionApps'
 
   # Agent VM image name
   vmImageName: 'windows-2019'
@@ -77,12 +72,12 @@ stages:
                script: |
                        echo AzurePortalServiceConnectionId: '$(AzurePortalServiceConnectionId)'
                        echo ResourceGroupId: '$(ResourceGroupId)'
-                       echo FunctionAppName: '$(functionAppName)'
+                       echo FunctionAppName: '$(AzureFunctionAppName)'
 
           - task: AzureFunctionApp@1
             displayName: 'Azure functions app deploy'
             inputs:
               azureSubscription: '$(AzurePortalServiceConnectionId)'
               appType: functionApp
-              appName: '$(functionAppName)'
+              appName: '$(AzureFunctionAppName)'
               package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
