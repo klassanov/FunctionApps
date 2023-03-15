@@ -144,7 +144,27 @@ DEVELOPMENT CONCEPTS
    - func init/ func new/ func start
    - build with vs and then run func start from a functions project folder
    - Sandbox and Browser Cloud Shell https://learn.microsoft.com/en-us/training/modules/develop-test-deploy-azure-functions-with-core-tools/3-exercise-create-function-core-tools
+   - Open 2 tabs in parallel, 1 for launhing the function and seeing the logs and the second for curl requests
+   - https://learn.microsoft.com/en-us/training/modules/develop-test-deploy-azure-functions-with-core-tools/5-exercise-publish-function-core-tools
+   - You can also launch Cloud Shell in a separate browser tab by going to https://shell.azure.com.
+   - Azure CLI function app creation. Useful commands
+     az login
+	 az account list -> all accounts
+	 az account show -> active account
+	 az account set --subscription <name or id> -> switch subscription (can be used for sandbox)
 
+	 Local commands:
+	 - create new func locally
+	 - func start to test
+	 - create the function app 
+	 - func azure functionapp publish "klassanov-test" --force ("klassanov-test" of the function app in azure)
+
+ - In AzureDevOps, add a new Azure Resource Manager >> ServicePrincipal connection (the sandbox appears as a subscription): cannot do it for a sandbox
+ - work entirely with the azure cloud shell from the browser, follow the turorial
+ - work with Core tools locally and with Azure CLI to publish the function
+ - func azure functionapp publish "klassanov-test". Remember to call it with the function key (either in the query string or in a header)
+
+ - publish via AzureDevOps pipeline (manually create the function app on the portal or use the Azure CLI to create the function)
 
 
 - Every function published to Azure belongs to a function app, which is a collection of one or more functions that Azure publishes together 
