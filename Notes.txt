@@ -173,6 +173,26 @@ DEVELOPMENT CONCEPTS
    A functions project on your computer is equivalent to a function app in Azure, and can contain multiple functions that use the same language runtime.
    A given function app only supports a single language runtime.
 
+DEPLOYMENT OPTIONS
+-----------------------------------------
+	- Directly from Visual Studio
+
+	- Continuous deployment:
+			- Bitbucket
+			- Dropbox
+			- External repository (Git or Mercurial)
+			- Git local repository
+			- GitHub
+			- OneDrive
+			- Azure DevOps
+
+	- Directly on the portal
+
+	- ZIP deployment, using the AzureCLI console or by the ?REST Interface?
+
+	-
+
+
 
 AZURE
 --------------------------------------------

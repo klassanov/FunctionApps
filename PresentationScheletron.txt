@@ -1,0 +1,119 @@
+
+---------------------------------------------------------- AZURE FUNCTIONS: PART 1 ----------------------------------------------
+
+Slide
+------------
+Contents:
+ - What are Azure functions
+ - What is serverless
+ - Why use Azure Functions -> Benefits
+ -
+
+
+Slide
+-----------
+ - Use case scenarios in which functions are a great fit
+
+
+
+
+Slide
+---------
+ - General development concepts: what is function app, triggers, bindings, security etc...
+ - Types of functions
+
+
+
+
+Slide
+---------
+ Development options overiview:
+	- Development languages
+	- Visual Studio
+	- Visual Studio Code
+	- In-Portal
+	- Azure Core Tools
+	- More?
+	- What do we need to install in order to be able to develop in each case
+
+
+
+
+Demo
+---------
+ - HTTP Trigger function in Visual Studio localhost (C#)
+ - HTTP Trigger function in Visual Studio Code (C#)
+ - HTTP Trigger function in-portal (js)
+ - HTTP Trigger function in Core Tools (C# or js)
+ 
+
+
+
+
+Slide
+--------------
+Deployment options overview:
+	
+	- Directly from Visual Studio
+
+	- Continuous deployment from a repo:
+			- Bitbucket
+			- Dropbox
+			- External repository (Git or Mercurial)
+			- Git local repository
+			- GitHub
+			- OneDrive
+			- Azure Repo
+
+	- Azure Pipeline
+
+	- Directly on the portal
+
+	- ZIP deployment, using the AzureCLI console or by the ?REST Interface?
+
+
+
+
+Demo
+-------------
+https://learn.microsoft.com/en-us/training/modules/develop-test-deploy-azure-functions-with-visual-studio/4-publish-azure-functions
+Deploy functions created previously in different ways: 
+
+	- Directly from Visual Studio
+	- ZIP delpoyment, using Azure Cli console
+	- Azure Pipeline
+	- GitHub Repo or local repo (by webhook?) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------- AZURE FUNCTIONS: PART 2 ----------------------------------------------
+
+
+Slide 1
+------------
+Contents:
+
+
+
+Slide
+-----------
+ - Pros and Cons of using Azure Functions
+
+Slide
+----------
+ - Cost of Azure Functions
