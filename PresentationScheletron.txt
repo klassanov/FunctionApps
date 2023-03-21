@@ -27,7 +27,7 @@ Slide
 
 Slide
 ---------
- Development options overiview:
+ Development options overview:
 	- Development languages
 	- Visual Studio
 	- Visual Studio Code
@@ -45,6 +45,7 @@ Demo
  - HTTP Trigger function in Visual Studio Code (C#)
  - HTTP Trigger function in-portal (js)
  - HTTP Trigger function in Core Tools (C# or js)
+ - Unit test a function
  
 
 
@@ -82,6 +83,7 @@ Deploy functions created previously in different ways:
 	- Directly from Visual Studio
 	- ZIP delpoyment, using Azure Cli console
 	- Azure Pipeline
+	- Azure Repo
 	- GitHub Repo or local repo (by webhook?) 
 
 
