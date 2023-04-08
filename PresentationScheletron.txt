@@ -106,16 +106,29 @@ Deploy functions created previously in different ways:
 ---------------------------------------------------------- AZURE FUNCTIONS: PART 2 ----------------------------------------------
 
 
-Slide 1
+Slide
 ------------
 Contents:
-
 
 
 Slide
 -----------
  - Pros and Cons of using Azure Functions
 
+
 Slide
 ----------
  - Cost of Azure Functions
+
+
+ Slide
+ --------
+  - Possibly move it to Part 1
+  - Expose FunctionApps as an API using Azure API Management
+  - Benefits of using Azure API Management to compose your API:
+	- Integrate different microservices and present them to client applications with consistent behavior at a single URL
+	- Requests are forwarded to the right microservice, wherever it's located, and returns responses to users. Users never see the different URIs where microservices are hosted.
+	- Usage of API Management policies to enforce consistent rules on all microservices 
+	- Monitor the behavior and performance of deployed services
+	- Different development team for each app, deploy and test on a different url
+	- Importing an Azure Function App as new API or appending them to existing API
