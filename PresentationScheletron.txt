@@ -1,13 +1,53 @@
 
 ---------------------------------------------------------- AZURE FUNCTIONS: PART 1 ----------------------------------------------
+Slide
+------------
+- Who am I
+
+
+Slide
+------------
+ - Azure Functions, Part 1
+ - Presentation Contents
+
 
 Slide
 ------------
 Contents:
- - What are Azure functions
- - What is serverless
+ - What are Azure functions?
+	- FaaS (function as a service platform): a platform for running code (functions) in response to events, event-driven model
+
+
+
+ Slide
+------------
+ - What is serverless (3 main things)
+	
+	- Servers are managed for U, U need to provide your code only
+		- Servers are abstracted away
+	
+	- Per-second billing model, consumption-based cost-plan
+		- Only pay when your code runs: no run, no cost
+
+	- Automatic scale in response to demand
+		- Multiple servers meet the demand
+
+Summarizing: Simpler, Cheaper and More scalable compared to traditional development compared to the traditional approach of creating an application and
+hosting it on a dedicated VM
+
+
+ Slide
+------------
+ - Different hosting models (plans), serverless is only one of them, it is related to the consumption plan
+
+
+
+  Slide
+------------
  - Why use Azure Functions -> Benefits
- -
+	- fast development
+	- reduce costs
+	- automatic scale
 
 
 Slide
@@ -15,6 +55,24 @@ Slide
  - Use case scenarios in which functions are a great fit
 
 
+
+Slide
+---------
+ Development options overview:
+	- Development languages: C#, JavaScript, Java, Python, Powershell, F# and....
+	- Visual Studio: debug and test locally
+	- Visual Studio Code
+	- In-Portal: good for Demos, PoC, Experiments
+	- Azure Core Tools
+	- More?
+	- What do we need to install in order to be able to develop in each case
+
+
+Slide
+---------
+  - General development concepts
+	- Triggers: event-driven, examples: http trigger, timer, message (queue)
+	- Bindings: queue, integrate with different sources and destinations without having to write boilerplate code to manage the connection
 
 
 Slide
@@ -25,19 +83,6 @@ Slide
 
 
 
-Slide
----------
- Development options overview:
-	- Development languages
-	- Visual Studio
-	- Visual Studio Code
-	- In-Portal
-	- Azure Core Tools
-	- More?
-	- What do we need to install in order to be able to develop in each case
-
-
-
 
 Demo
 ---------
@@ -45,7 +90,8 @@ Demo
  - HTTP Trigger function in Visual Studio Code (C#)
  - HTTP Trigger function in-portal (js)
  - HTTP Trigger function in Core Tools (C# or js)
- - Unit test a function
+ - HTTP function security: api key
+ - Unit test an HTTP function function
  
 
 
@@ -90,10 +136,25 @@ Deploy functions created previously in different ways:
 
 
 
+Slide
+--------------
+   - Sources 
+	  -	https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview
+	  - https://learn.microsoft.com/en-us/training/paths/create-serverless-applications/
+	  - https://app.pluralsight.com/library/courses/microsoft-azure-serverless-functions-create/table-of-contents
+
+
+
+Slide
+--------------
+   - What to expect in Part 2
 
 
 
 
+Slide
+--------------
+   - Thanks for your attention
 
 
 
