@@ -78,7 +78,12 @@ Slide
 Slide
 ---------
  - General development concepts: what is function app, triggers, bindings, security etc...
- - Types of functions
+ - Types of functions: ,durable, etc...
+ - Function app: unit of deployment, consists of 1 or more functions which: 
+		- share common configuration
+		- scale together
+		- have the same runtime stack
+
 
 
 
@@ -92,6 +97,8 @@ Demo
  - HTTP Trigger function in Core Tools (C# or js)
  - HTTP function security: api key
  - Unit test an HTTP function function
+ ? Proxy http requests to another function?
+
  
 
 
