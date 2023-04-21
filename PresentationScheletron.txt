@@ -45,6 +45,8 @@ Demo
 	- Storage account
 	- App Insignt instance
 
+- What is a function app
+
 
 
  Slide
