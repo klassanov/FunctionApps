@@ -36,6 +36,17 @@ Summarizing: Simpler, Cheaper and More scalable compared to traditional developm
 hosting it on a dedicated VM
 
 
+Demo
+-----------
+- Demo on the Azure Portal directly, first create a function app
+- Resources created: 
+	- FunctionApp itself
+	- AppServicePlan: hosting consumption plan that governs the billing
+	- Storage account
+	- App Insignt instance
+
+
+
  Slide
 ------------
  - Different hosting models (plans), serverless is only one of them, it is related to the consumption plan
@@ -187,6 +198,16 @@ Slide
 Slide
 ----------
  - Cost of Azure Functions
+
+
+Slide
+--------
+- Monitoring
+
+
+Slide
+-------
+- Deploy with Docker container
 
 
  Slide
