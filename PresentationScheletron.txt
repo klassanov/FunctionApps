@@ -7,7 +7,7 @@ Slide
 
 Slide
 ------------
- - Azure Functions, Part 1
+ - Azure Functions, version 4 Part 1
  - Presentation Contents
 
 
@@ -80,6 +80,12 @@ Slide
 	- More?
 	- What do we need to install in order to be able to develop in each case
 
+Demo
+---------
+  - Develop a Function App in Visual Studio
+  - Possible languages: C#, F#, Javascript
+  - Tools to install: In VS during installation Azure Development Workload,, put a screenshot. It includes the azure storage emulator which locally emulates
+    a storage account needed for the function to run
 
 Slide
 ---------
