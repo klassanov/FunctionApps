@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionApp.Timer", "Functi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionApp.Chaining", "FunctionApp.Chaining\FunctionApp.Chaining.csproj", "{F1DCF3E6-BD78-446A-AB40-F57F199CF067}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionApp.HTTP.UnitTests", "FunctionApp.HTTP.UnitTests\FunctionApp.HTTP.UnitTests.csproj", "{5F86410C-5FFB-44CB-816D-4981BF54C2B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionApp.HTTP.UnitTests", "FunctionApp.HTTP.UnitTests\FunctionApp.HTTP.UnitTests.csproj", "{5F86410C-5FFB-44CB-816D-4981BF54C2B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionApp.RestAPI", "FunctionApp.RestAPI\FunctionApp.RestAPI.csproj", "{77061ACA-FEF3-484B-8504-677B3745A03B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{5F86410C-5FFB-44CB-816D-4981BF54C2B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F86410C-5FFB-44CB-816D-4981BF54C2B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F86410C-5FFB-44CB-816D-4981BF54C2B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77061ACA-FEF3-484B-8504-677B3745A03B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77061ACA-FEF3-484B-8504-677B3745A03B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77061ACA-FEF3-484B-8504-677B3745A03B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77061ACA-FEF3-484B-8504-677B3745A03B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

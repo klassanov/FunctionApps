@@ -7,7 +7,7 @@ Slide
 
 Slide
 ------------
- - Azure Functions, version 4 Part 1
+ - Azure Functions, runtime version 4, Part 1
  - Presentation Contents
 
 
@@ -84,14 +84,75 @@ Demo
 ---------
   - Develop a Function App in Visual Studio
   - Possible languages: C#, F#, Javascript
-  - Tools to install: In VS during installation Azure Development Workload,, put a screenshot. It includes the azure storage emulator which locally emulates
+  - Tools to install: In VS during installation Azure Development Workload, put a screenshot. It includes the azure storage emulator which locally emulates
     a storage account needed for the function to run
+  - Need a function app project and then we can add functions to it 
+  - Files in Visual studio
+    - host.json: 
+	- local.settings.json: local settings, typically not checked in source control as it might contain sensitive data
+	- Referencing Microsoft.NET.Sdk.Functions nuget package
+	- After compilation, explore the compiled code .net standard dll and the function.json file in the Function's folder are generated and the function is ready for publishing on Azure
+  
+  - Example of Unit tests in Visual Studio 
 
 Slide
 ---------
   - General development concepts
 	- Triggers: event-driven, examples: http trigger, timer, message (queue)
 	- Bindings: queue, integrate with different sources and destinations without having to write boilerplate code to manage the connection
+
+Demo (Azure Function Core Tools and Command Line)
+----------------------------------
+ - Use the Azure Function Core Tools and the command line
+ - Things to install: Azure Function Core Tools, can be installed on all platforms (https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=v4%2Cwindows%2Ccsharp%2Cportal%2Cbash)
+ - Azure Function Core Tools contains the functions runtime and provides a CLI for creating Function Apps, Adding functions, Deploying to Azure
+ - The Core Tools allow development without visual studio and with any text editor U like
+
+   Steps: 
+ 1. type func to check what we have installed
+ 2. go to an empty folder > type func init
+ 3. choose node, choose javascript
+ 4. go through the generated files
+ 5. func new, choose http trigger
+ 6. func start
+ 7. call it with the browser, specifying a parameter, observe the function logs
+
+
+
+
+Demo (VS code)
+-----------------------------------
+ - Develop a Function in VS Code ()
+ - Why use it: Cross-platform, ok for Linux and MacOS, free, nice dev experience
+ - Things to install: Azure Function Core Tools
+  
+ 
+ - No storage emulator, but for http functions, we do not need it. Alternatives: Azurite
+ - VS Code allows debugging
+ - VS Code has an extension for developing Azure Functions
+
+ - node.js installed for our example, cause it will be in javascript
+ 
+ Steps:
+ 1.  Open command line in the function app root folder
+ 2.  type code . => Launch VS code in that folder, say yes to the dialog
+ 3.  Go to the extensions window and observe the installed extensions: Azure Functions (the extension was automatically installed thanks to the file in the .vscode folder)
+ 4.  Observe the Azure icon in the left-side menu, open it. Icons for adding a new Azure Function and deployment. Resources section -> remote, Workspace section -> local
+ 5.  In the workspace section >> Functions >> Add a new function to the project
+ 6.  Select another http trigger, default name HttpTrigger1, Anonymous authorization
+ 7.  Go to the file explorer and explore the structure, one more folder has been added
+ 8.  There is a sample.dat file for testing purposes only for the function created by VS Code
+ 9.  Put a breakpoint in index.js of HttpTrigger1 and press F5
+ 10. Observe logs in the terminal window: the runtime initializes and the vs code debugger attaches to the Node process
+ 11. Go to the browser and request the second functions url httptrigger1
+ 12. We hit the breakpoint.
+ 13. Pass a query string parameter and hover on the variables
+
+
+ Demo
+ --------------
+  - Show the ToDo REST API and explain about routes and how we have built a consistent api
+
 
 
 Slide
@@ -159,7 +220,9 @@ Deploy functions created previously in different ways:
 	- GitHub Repo or local repo (by webhook?) 
 
 
-
+Slide
+--------------
+Table summary of everything
 
 
 Slide
@@ -168,7 +231,6 @@ Slide
 	  -	https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview
 	  - https://learn.microsoft.com/en-us/training/paths/create-serverless-applications/
 	  - https://app.pluralsight.com/library/courses/microsoft-azure-serverless-functions-create/table-of-contents
-
 
 
 Slide
