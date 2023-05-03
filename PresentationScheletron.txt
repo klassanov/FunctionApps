@@ -254,6 +254,15 @@ Slide
 
 ---------------------------------------------------------- AZURE FUNCTIONS: PART 2 ----------------------------------------------
 
+Demo (Bindings, REST API with table storage)
+----------------
+ - Table Storage : FunctionApp.TableStorage.RestAPI
+ - Cheap for development: TableStorage vs CosmosDB, PartitionKey, RowKey
+ - Uses the storage account created along with the function
+ - Add nuget packages: Microsoft.Azure.WebJobs.Extensions.Storage, (Microsoft.Azure.WebJobs.Extensions.Tables - not needed)
+ - Binding is used as input parameter to the methods in the api
+
+
 
 Slide
 ------------
