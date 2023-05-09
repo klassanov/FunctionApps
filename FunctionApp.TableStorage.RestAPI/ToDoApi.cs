@@ -30,26 +30,26 @@ namespace FunctionApp.TableStorage.RestAPI
     public static class ToDoApi
     {
 
-        //[FunctionName("CreateTodo")]
-        //public static async Task<IActionResult> CreateTodo(
-        //    [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "todo")] HttpRequest req,
-        //    [Table(tableName: "todos", Connection = "AzureWebJobsStorage")] IAsyncCollector<ToDoTableEntity> todoTable,
-        //    ILogger logger)
-        //{
-        //    logger.LogInformation("Creating a new todo item");
+        [FunctionName("CreateTodo")]
+        public static async Task<IActionResult> CreateTodo(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "todo")] HttpRequest req,
+            [Table(tableName: "todos", Connection = "AzureWebJobsStorage")] IAsyncCollector<ToDoTableEntity> todoTable,
+            ILogger logger)
+        {
+            logger.LogInformation("Creating a new todo item");
 
-        //    string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-        //    var todoCreateModel = JsonConvert.DeserializeObject<ToDoCreateModel>(requestBody);
-        //    Todo todo = new Todo(Guid.NewGuid().ToString(), DateTime.Now, todoCreateModel.TaskDescription, false);
-        //    await todoTable.AddAsync(todo.ToTableEntity());
+            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+            var todoCreateModel = JsonConvert.DeserializeObject<ToDoCreateModel>(requestBody);
+            Todo todo = new Todo(Guid.NewGuid().ToString(), DateTime.Now, todoCreateModel.TaskDescription, false);
+            await todoTable.AddAsync(todo.ToTableEntity());
 
-        //    logger.LogInformation($"Todo item with id {todo.Id} created");
+            logger.LogInformation($"Todo item with id {todo.Id} created");
 
-        //    //does not calculate the route correctly so it is unusable now
-        //    //return new CreatedAtRouteResult(new { id = todo.Id }, todo);
+            //does not calculate the route correctly so it is unusable now
+            //return new CreatedAtRouteResult(new { id = todo.Id }, todo);
 
-        //    return new OkObjectResult(todo);
-        //}
+            return new OkObjectResult(todo);
+        }
 
 
         [FunctionName("GetTodos")]
