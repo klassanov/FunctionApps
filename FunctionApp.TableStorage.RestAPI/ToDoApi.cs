@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
 using Azure;
 using Azure.Data.Tables;
@@ -12,7 +10,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
-using Microsoft.WindowsAzure.Storage.Table;
 using Newtonsoft.Json;
 
 // GOAL: Expose a REST STYLE api for managing todo list items
@@ -30,7 +27,6 @@ namespace FunctionApp.TableStorage.RestAPI
 {
     public static class ToDoApi
     {
-
         [FunctionName("CreateTodo")]
         public static async Task<IActionResult> CreateTodo(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "todo")] HttpRequest req,
