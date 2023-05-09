@@ -117,34 +117,25 @@ namespace FunctionApp.TableStorage.RestAPI
         }
 
 
-        //[FunctionName("DeleteTodo")]
-        //public static async Task<IActionResult> DeleteTodo(
-        //    [HttpTrigger(AuthorizationLevel.Anonymous, "delete", Route = "todo/{id}")] HttpRequest req,
-        //    [Table(tableName: Constants.ToDoTableName, Connection = "AzureWebJobsStorage")] CloudTable todoTable,
-        //    ILogger logger,
-        //    string id)
-        //{
-        //    logger.LogInformation($"Deleting a record with id {id}");
+        [FunctionName("DeleteTodo")]
+        public static async Task<IActionResult> DeleteTodo(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "delete", Route = "todo/{id}")] HttpRequest req,
+            [Table(tableName: Constants.ToDoTableName, Connection = "AzureWebJobsStorage")] TableClient todoTableKlient,
+            ILogger logger,
+            string id)
+        {
+            logger.LogInformation($"Deleting a record with id {id}");
+            
+            var response =  todoTableKlient.DeleteEntity(partitionKey: Constants.ToDoPartitionKey, id);
 
-        //    var deleteOperation = TableOperation.Delete(new TableEntity
-        //    {
-        //        PartitionKey = Constants.ToDoPartitionKey,
-        //        RowKey = id,
-        //        ETag = "*"
-        //    });
+            if(response.IsError)
+            {
+                logger.LogError(new EventId(1), $"Error during deletion of entity with id {id}");
+                return new NotFoundResult();
+            }
 
-        //    try
-        //    {
-        //        var deleteResult =await todoTable.ExecuteAsync(deleteOperation);
-        //    }
-        //    catch (StorageException ex) when (ex.RequestInformation.HttpStatusCode == (int) HttpStatusCode.NotFound)
-        //    {
-        //        logger.LogError(new EventId(1), ex, $"Error during deletion of entity with id {id}");
-        //        return new NotFoundResult();
-        //    }
-
-        //    return new OkResult();
-        //}
+            return new OkResult();
+        }
     }
 
 
