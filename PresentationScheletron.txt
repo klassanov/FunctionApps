@@ -261,6 +261,7 @@ Demo (Bindings, REST API with table storage)
  - Uses the storage account created along with the function
  - Add nuget packages: Microsoft.Azure.WebJobs.Extensions.Storage, (Microsoft.Azure.WebJobs.Extensions.Tables - not needed)
  - Binding is used as input parameter to the methods in the api
+ - Even if we switch off the app and then turn it on again, the entities are persisted!
 
 
 

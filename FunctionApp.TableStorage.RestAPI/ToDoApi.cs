@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using Azure;
 using Azure.Data.Tables;
 using FunctionApp.TableStorage.RestAPI.TableStorage;
 using Microsoft.AspNetCore.Http;
@@ -85,37 +86,35 @@ namespace FunctionApp.TableStorage.RestAPI
                 : new OkObjectResult(todo);
         }
 
-        //[FunctionName("UpdateTodo")]
-        //public static async Task<IActionResult> UpdateTodo(
-        //    [HttpTrigger(AuthorizationLevel.Anonymous, "put", Route = "todo/{id}")] HttpRequest req,
-        //    [Table(tableName: Constants.ToDoTableName, Connection = "AzureWebJobsStorage")] CloudTable todoTable,
-        //    ILogger log,
-        //    string id)
-        //{
-        //    log.LogInformation($"Updating todo item with id {id}");
+        [FunctionName("UpdateTodo")]
+        public static async Task<IActionResult> UpdateTodo(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "put", Route = "todo/{id}")] HttpRequest req,
+            [Table(tableName: Constants.ToDoTableName, Connection = "AzureWebJobsStorage")] TableClient todoTableClient,
+            ILogger log,
+            string id)
+        {
+            
+            log.LogInformation($"Updating todo item with id {id}");
+            var response = todoTableClient.GetEntity<ToDoTableEntity>(partitionKey:Constants.ToDoPartitionKey, rowKey: id);
+            if (response is null || response.Value is null)
+            {
+                return new NotFoundResult();
+            }
 
-        //    var findOperation = TableOperation.Retrieve<ToDoTableEntity>(partitionKey: Constants.ToDoPartitionKey, rowkey:id);
-        //    var findResult = await todoTable.ExecuteAsync(findOperation);
-        //    var todoEntity = findResult.Result as ToDoTableEntity;
-        //    if (todoEntity is null)
-        //    {
-        //        return new NotFoundResult();
-        //    }
+            var todoEntity = response.Value;
 
-        //    string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-        //    var toDoUpdateModel = JsonConvert.DeserializeObject<ToDoUpdateModel>(requestBody);
-        //    var taskDescription = !string.IsNullOrEmpty(toDoUpdateModel.TaskDescription)
-        //                                ? toDoUpdateModel.TaskDescription
-        //                                : todoEntity.Description;
+            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+            var toDoUpdateModel = JsonConvert.DeserializeObject<ToDoUpdateModel>(requestBody);
+            var taskDescription = !string.IsNullOrEmpty(toDoUpdateModel.TaskDescription)
+                                        ? toDoUpdateModel.TaskDescription
+                                        : todoEntity.Description;
 
-        //    todoEntity.Description = taskDescription;
-        //    todoEntity.IsCompleted = toDoUpdateModel.IsCompleted;
+            todoEntity.Description = taskDescription;
+            todoEntity.IsCompleted = toDoUpdateModel.IsCompleted;
+            todoTableClient.UpdateEntity(entity: todoEntity, ifMatch: ETag.All, TableUpdateMode.Merge);
 
-        //    var replaceOperation = TableOperation.Replace(todoEntity);
-        //    await todoTable.ExecuteAsync(replaceOperation);
-
-        //    return new OkObjectResult(todoEntity.ToTodo());
-        //}
+            return new OkObjectResult(todoEntity.ToTodo());
+        }
 
 
         //[FunctionName("DeleteTodo")]
