@@ -72,21 +72,21 @@ namespace FunctionApp.TableStorage.RestAPI
             return new OkObjectResult(items);
         }
 
-        //[FunctionName("GetTodo")]
-        //public static IActionResult GetTodo(
-        //    [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "todo/{id}")] HttpRequest req,
-        //    [Table(tableName: Constants.ToDoTableName, partitionKey: Constants.ToDoPartitionKey, rowKey: "{id}", Connection = "AzureWebJobsStorage")] ToDoTableEntity todoTable,
-        //    ILogger log,
-        //    string id)
-        //{
-        //    log.LogInformation($"Retrieving a todo item with id {id}");
+        [FunctionName("GetTodo")]
+        public static IActionResult GetTodo(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "todo/{id}")] HttpRequest req,
+            [Table(tableName: Constants.ToDoTableName, partitionKey: Constants.ToDoPartitionKey, rowKey: "{id}", Connection = "AzureWebJobsStorage")] ToDoTableEntity todoTableEntity,
+            ILogger log,
+            string id)
+        {
+            log.LogInformation($"Retrieving a todo item with id {id}");
 
-        //    var todo = todoTable.ToTodo();
+            var todo = todoTableEntity.ToTodo();
 
-        //    return todo is null
-        //        ? new NotFoundResult()
-        //        : new OkObjectResult(todo);
-        //}
+            return todo is null
+                ? new NotFoundResult()
+                : new OkObjectResult(todo);
+        }
 
         //[FunctionName("UpdateTodo")]
         //public static async Task<IActionResult> UpdateTodo(
