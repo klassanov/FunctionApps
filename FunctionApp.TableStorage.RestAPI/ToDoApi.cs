@@ -58,10 +58,7 @@ namespace FunctionApp.TableStorage.RestAPI
             [Table(tableName: Constants.ToDoTableName, Connection = "AzureWebJobsStorage")] TableClient tableClient,
             ILogger logger)
         {
-            //var items = entities.Select(x => x.ToTodo()).ToList();
-
-            //logger.LogInformation("Retrieving all the todo items");
-            //return new OkObjectResult(items);
+            logger.LogInformation("Retrieving all the todo items");
             var items = new List<Todo>();
             var queryResults = tableClient.QueryAsync<ToDoTableEntity>();
             await foreach (ToDoTableEntity entity in queryResults)
