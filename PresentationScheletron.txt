@@ -291,6 +291,22 @@ Slide
 - Deploy with Docker container
 
 
+Demo
+-------
+- Timer triggered function
+- Possibly move it to Part 1
+
+Demo
+-------
+- Queue triggered function: blob, queue
+- FunctionApp.Queue.RestAPI.cproj: 
+	- on Todo item creation, post a message to the queue
+	- add a queue triggered function to handle these messsages
+	- write the received message to the blob storage
+- We have queue, blob and table all done with the emulator
+
+
+
  Slide
  --------
   - Possibly move it to Part 1

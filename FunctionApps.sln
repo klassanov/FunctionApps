@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionApp.RestAPI", "Func
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionApp.TableStorage.RestAPI", "FunctionApp.TableStorage.RestAPI\FunctionApp.TableStorage.RestAPI.csproj", "{CAFE111A-7FD6-4391-B52F-A400596A4158}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionApp.Queue.RestAPI", "FunctionApp.Queue.RestAPI\FunctionApp.Queue.RestAPI.csproj", "{F99772BE-4517-4DBC-866C-24B7A6DF0511}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{CAFE111A-7FD6-4391-B52F-A400596A4158}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAFE111A-7FD6-4391-B52F-A400596A4158}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CAFE111A-7FD6-4391-B52F-A400596A4158}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F99772BE-4517-4DBC-866C-24B7A6DF0511}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F99772BE-4517-4DBC-866C-24B7A6DF0511}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F99772BE-4517-4DBC-866C-24B7A6DF0511}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F99772BE-4517-4DBC-866C-24B7A6DF0511}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
