@@ -213,7 +213,9 @@ Demo
 https://learn.microsoft.com/en-us/training/modules/develop-test-deploy-azure-functions-with-visual-studio/4-publish-azure-functions
 Deploy functions created previously in different ways: 
 
-	- Directly from Visual Studio
+	- Directly from Visual Studio or Visual Studio Code: Create a brand new function or push code to an existing function app
+	  Great for prototyping or PoCs
+
 	- ZIP delpoyment, using Azure Cli console
 	- Azure Pipeline
 	- Azure Repo
@@ -235,7 +237,7 @@ Slide
 
 Slide
 --------------
-   - What to expect in Part 2
+   - What to expect in Part 2, topics
 
 
 
@@ -308,7 +310,9 @@ Demo
 - Possibly move it to Part 1
 
 
-
+Demo
+-------
+- Run functions in containers
 
 
  Slide
