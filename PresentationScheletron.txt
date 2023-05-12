@@ -205,7 +205,7 @@ Deployment options overview:
 
 	- ZIP deployment, using the AzureCLI console or by the ?REST Interface?
 
-
+	- After deploying, show queues, blobs and tables with Azure Storage Explorer
 
 
 Demo
