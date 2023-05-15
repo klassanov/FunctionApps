@@ -1,4 +1,4 @@
-
+﻿
 ---------------------------------------------------------- AZURE FUNCTIONS: PART 1 ----------------------------------------------
 Slide
 ------------
@@ -175,7 +175,7 @@ Demo
  - HTTP Trigger function in Visual Studio Code (C#)
  - HTTP Trigger function in-portal (js)
  - HTTP Trigger function in Core Tools (C# or js)
- - HTTP function security: api key
+ - HTTP function security: api key, function key-> for a single function. host key-> all the functions in the app
  - Unit test an HTTP function function
  ? Proxy http requests to another function?
 
@@ -313,6 +313,17 @@ Demo
 Demo
 -------
 - Run functions in containers
+- Host the functions runtime into a docker container
+- Pros: 
+	- Flexibility, allows deployment on other environments other than Azure, for ex. on-premises data center or AWS
+	- DevOps team wants to take advantage of container security and app settings
+	- Consistent deployment model: maybe the dev ops team wants to deploy everything as a container
+- Cons:
+	- Иt is up to U to provision additional instances of your container, for ex. using Kubernetes (KEDA project: Kubernetes Event-driven Autoscaling https://keda.sh/)
+	- No consumption plan pricing model, but 
+
+- func init --docker will generate docker file automatically
+- from vs menu, add docker support
 
 
  Slide
