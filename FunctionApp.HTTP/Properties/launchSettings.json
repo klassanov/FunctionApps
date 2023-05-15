@@ -2,8 +2,13 @@
   "profiles": {
     "FunctionApp.HTTP": {
       "commandName": "Project",
-      "commandLineArgs": "--port 7255",
-      "launchBrowser": false
+      "commandLineArgs": "--port 7255"
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "httpPort": 31142,
+      "useSSL": false
     }
   }
 }

@@ -323,7 +323,11 @@ Demo
 	- No consumption plan pricing model, but 
 
 - func init --docker will generate docker file automatically
+- func init --docker-only will generate the docker file only
 - from vs menu, add docker support
+- go to the folder containing the solution file (parent) and type docker build -t functionapphttp:dev -f FunctionApp.HTTP/Dockerfile .
+- run it locally
+- run it on Azure
 
 
  Slide
