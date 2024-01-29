@@ -130,7 +130,7 @@ namespace FunctionApp.TableStorage.RestAPI
                 return new NotFoundResult();
             }
 
-            return new OkResult();
+            return await Task.FromResult(new OkResult());
         }
     }
 

@@ -48,7 +48,7 @@ namespace FunctionApp.HTTP
             //string name = req.Query["name"];
 
             //Use the query string here
-            return new OkObjectResult("Ciao");
+            return await Task.FromResult(new OkObjectResult("Ciao"));
         }
     }
 

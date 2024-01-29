@@ -139,10 +139,10 @@ namespace FunctionApp.Queue.RestAPI
             if (response.IsError)
             {
                 logger.LogError(new EventId(1), $"Error during deletion of entity with id {id}");
-                return new NotFoundResult();
+                return await Task.FromResult(new NotFoundResult());
             }
 
-            return new OkResult();
+            return await Task.FromResult(new OkResult());
         }
     }
 
