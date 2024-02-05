@@ -21,10 +21,13 @@ stages:
       vmImage: ubuntu-latest
     steps:
     - task: Docker@2
-      displayName: Build an image
+      displayName: Build and push an image
       inputs:
-        command: build
+        command: buildAndPush
         buildContext: '$(Build.SourcesDirectory)'
         dockerfile: '$(Build.SourcesDirectory)/FunctionApp.HTTP/Dockerfile'
+        containerRegistry: 'klassanovdemoregistry'
+        repository: 'functionapphttp'        
         tags: |
           $(tag)
+
