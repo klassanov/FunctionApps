@@ -36,6 +36,7 @@ stages:
         azureSubscription: 'Azure subscription 1(ff7c8f10-fc27-46db-b76d-2eb797719bd4)'
         appName: 'klassanov-func-container-test'
         imageName: 'klassanovdemoregistry.azurecr.io/functionapphttp:$(tag)'
+        appSettings: '-DOCKER_REGISTRY_SERVER_URL $(registryUrl) -DOCKER_REGISTRY_SERVER_USERNAME $(registryUsername) -DOCKER_REGISTRY_SERVER_PASSWORD $(registryPassword)'
     
 
     
