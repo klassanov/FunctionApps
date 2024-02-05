@@ -35,7 +35,7 @@ stages:
       inputs:
         azureSubscription: 'Azure subscription 1(ff7c8f10-fc27-46db-b76d-2eb797719bd4)'
         appName: 'klassanov-func-container-test'
-        imageName: 'klassanovdemoregistry/functionapphttp:$(tag)'
+        imageName: 'klassanovdemoregistry.azurecr.io/functionapphttp:$(tag)'
     
 
     
