@@ -72,13 +72,11 @@ stages:
                script: |
                        echo AzurePortalServiceConnectionId: '$(AzurePortalServiceConnectionId)'
                        echo ResourceGroupId: '$(ResourceGroupId)'
-                       echo FunctionAppName: '$(AzureFunctionAppName)'
-
-          - task: AzureFunctionApp@1
-            displayName: 'Azure functions app deploy'
+                       echo FunctionAppName: '$(AzureFunctionAppName)'        
+          - task: AzureFunctionApp@2
             inputs:
-              azureSubscription: '$(AzurePortalServiceConnectionId)'
-              appType: functionApp
-              appName: '$(AzureFunctionAppName)'
+              connectedServiceNameARM: 'Azure subscription 1(ff7c8f10-fc27-46db-b76d-2eb797719bd4)'
+              appType: 'functionApp'
+              appName: 'klassanov-func-apps-test'
               package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
               deploymentMethod: 'auto'
