@@ -13,7 +13,7 @@ namespace FunctionApp.Timer
     public static class TimerScheduleExampleFunction
     {
         [FunctionName("TimerTriggerCSharp")]
-        public static void Run([TimerTrigger("0 */1 * * * *")] TimerInfo myTimer, ILogger log)
+        public static void Run([TimerTrigger("*/10 * * * * *")] TimerInfo myTimer, ILogger log)
         {
             if (myTimer.IsPastDue)
             {
