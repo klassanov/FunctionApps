@@ -75,7 +75,7 @@ stages:
 
           - task: AzureFunctionApp@2
             inputs:
-              connectedServiceNameARM: 'Azure subscription 1(ff7c8f10-fc27-46db-b76d-2eb797719bd4)'
+              connectedServiceNameARM: '$(ConnectedServiceNameARM)'
               appType: 'functionApp'
               appName: '$(AzureFunctionAppName)'
               package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
