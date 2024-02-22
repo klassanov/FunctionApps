@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.DurableTask;
@@ -27,6 +28,9 @@ namespace FunctionApp.Chaining
 
             // returns ["Generated number is: x", "Generated number is: y"]
             // Follow the statusQueryGetUri in the response of the call to see the output
+
+            Thread.Sleep(10000);
+
             return outputs;
         }
 
