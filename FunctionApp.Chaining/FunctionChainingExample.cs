@@ -29,6 +29,7 @@ namespace FunctionApp.Chaining
             // returns ["Generated number is: x", "Generated number is: y"]
             // Follow the statusQueryGetUri in the response of the call to see the output
 
+            //Simulates a long-running task
             Thread.Sleep(10000);
 
             return outputs;
