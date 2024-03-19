@@ -26,8 +26,9 @@ to those with limited prior experience seeking to enhance their knowledge.
  
 ### Part 2:
 6. Durable Functions: Concept of Durable Functions for orchestrating complex workflows and long-running processes
-7. Deployment Options: Strategies for deploying and managing Azure Functions
-8. Hosting Options and Plans: Different hosting options and plans available for Azure Functions
-9. Cost Estimation: Costs estimation associated with utilizing Azure Functions
+7. Deployment to Azure Options: Strategies for deploying and managing Azure Functions
+8. Azure Hosting Plans: Different hosting options and plans available for Azure Functions
+9. Azure Hosting Modes: In-Process mode vs Isolated Worker Process mode
+10. Cost Calculation: Costs calculation associated with utilizing Azure Functions
 
 
